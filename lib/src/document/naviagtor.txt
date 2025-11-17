@@ -1,0 +1,6 @@
+Luồng AppNavigator:
+
+- AppPopupInfo: define các loại popup (chỉ định nghĩa các tên popup truyền vào dữ liệu gì, còn về sau dữ liệu đó hiển thị hay xử lý như thế nào sẽ phụ thuộc vào class implement AppNavigator)
+
+về sau sẽ tạo thêm cả AppBottomSheetInfo để show bottom sheet
+
