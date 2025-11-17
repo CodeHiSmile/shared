@@ -2,6 +2,9 @@ name: shared
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
+repository: https://github.com/CodeHiSmile/shared
+issue_tracker: https://github.com/CodeHiSmile/shared/issues
+documentation: https://github.com/CodeHiSmile/shared
 
 environment:
   sdk: ^3.10.0
