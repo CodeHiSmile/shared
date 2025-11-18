@@ -11,5 +11,4 @@ class AppRouteInfo with _$AppRouteInfo {
 
   const factory AppRouteInfo.onboarding() = _Onboarding;
 
-  const factory AppRouteInfo.surveyWelcome() = _SurveyWelcome;
 }

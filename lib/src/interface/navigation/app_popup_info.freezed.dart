@@ -55,7 +55,7 @@ extension AppPopupInfoPatterns on AppPopupInfo {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _ConfirmDialog value)?  confirmDialog,TResult Function( _ErrorWithRetryDialog value)?  errorWithRetryDialog,TResult Function( _RequiredLoginDialog value)?  requiredLoginDialog,TResult Function( _MessageWithTitleDialog value)?  messageWithTitleDialog,TResult Function( _AlertDialog value)?  alertDialog,TResult Function( _FaceIdErrorDialog value)?  faceIdErrorDialog,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _ConfirmDialog value)?  confirmDialog,TResult Function( _ErrorWithRetryDialog value)?  errorWithRetryDialog,TResult Function( _RequiredLoginDialog value)?  requiredLoginDialog,TResult Function( _MessageWithTitleDialog value)?  messageWithTitleDialog,TResult Function( _AlertDialog value)?  alertDialog,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _ConfirmDialog() when confirmDialog != null:
@@ -63,8 +63,7 @@ return confirmDialog(_that);case _ErrorWithRetryDialog() when errorWithRetryDial
 return errorWithRetryDialog(_that);case _RequiredLoginDialog() when requiredLoginDialog != null:
 return requiredLoginDialog(_that);case _MessageWithTitleDialog() when messageWithTitleDialog != null:
 return messageWithTitleDialog(_that);case _AlertDialog() when alertDialog != null:
-return alertDialog(_that);case _FaceIdErrorDialog() when faceIdErrorDialog != null:
-return faceIdErrorDialog(_that);case _:
+return alertDialog(_that);case _:
   return orElse();
 
 }
@@ -82,7 +81,7 @@ return faceIdErrorDialog(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _ConfirmDialog value)  confirmDialog,required TResult Function( _ErrorWithRetryDialog value)  errorWithRetryDialog,required TResult Function( _RequiredLoginDialog value)  requiredLoginDialog,required TResult Function( _MessageWithTitleDialog value)  messageWithTitleDialog,required TResult Function( _AlertDialog value)  alertDialog,required TResult Function( _FaceIdErrorDialog value)  faceIdErrorDialog,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _ConfirmDialog value)  confirmDialog,required TResult Function( _ErrorWithRetryDialog value)  errorWithRetryDialog,required TResult Function( _RequiredLoginDialog value)  requiredLoginDialog,required TResult Function( _MessageWithTitleDialog value)  messageWithTitleDialog,required TResult Function( _AlertDialog value)  alertDialog,}){
 final _that = this;
 switch (_that) {
 case _ConfirmDialog():
@@ -90,8 +89,7 @@ return confirmDialog(_that);case _ErrorWithRetryDialog():
 return errorWithRetryDialog(_that);case _RequiredLoginDialog():
 return requiredLoginDialog(_that);case _MessageWithTitleDialog():
 return messageWithTitleDialog(_that);case _AlertDialog():
-return alertDialog(_that);case _FaceIdErrorDialog():
-return faceIdErrorDialog(_that);case _:
+return alertDialog(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -108,7 +106,7 @@ return faceIdErrorDialog(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _ConfirmDialog value)?  confirmDialog,TResult? Function( _ErrorWithRetryDialog value)?  errorWithRetryDialog,TResult? Function( _RequiredLoginDialog value)?  requiredLoginDialog,TResult? Function( _MessageWithTitleDialog value)?  messageWithTitleDialog,TResult? Function( _AlertDialog value)?  alertDialog,TResult? Function( _FaceIdErrorDialog value)?  faceIdErrorDialog,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _ConfirmDialog value)?  confirmDialog,TResult? Function( _ErrorWithRetryDialog value)?  errorWithRetryDialog,TResult? Function( _RequiredLoginDialog value)?  requiredLoginDialog,TResult? Function( _MessageWithTitleDialog value)?  messageWithTitleDialog,TResult? Function( _AlertDialog value)?  alertDialog,}){
 final _that = this;
 switch (_that) {
 case _ConfirmDialog() when confirmDialog != null:
@@ -116,8 +114,7 @@ return confirmDialog(_that);case _ErrorWithRetryDialog() when errorWithRetryDial
 return errorWithRetryDialog(_that);case _RequiredLoginDialog() when requiredLoginDialog != null:
 return requiredLoginDialog(_that);case _MessageWithTitleDialog() when messageWithTitleDialog != null:
 return messageWithTitleDialog(_that);case _AlertDialog() when alertDialog != null:
-return alertDialog(_that);case _FaceIdErrorDialog() when faceIdErrorDialog != null:
-return faceIdErrorDialog(_that);case _:
+return alertDialog(_that);case _:
   return null;
 
 }
@@ -134,15 +131,14 @@ return faceIdErrorDialog(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String message,  Func0<void>? onPressed)?  confirmDialog,TResult Function( String message,  Func0<void>? onRetryPressed)?  errorWithRetryDialog,TResult Function()?  requiredLoginDialog,TResult Function( String title,  String message,  String? buttonText,  VoidCallback? onConfirm,  Color? buttonColor,  bool isSuccess,  Widget? icon,  bool showIcon)?  messageWithTitleDialog,TResult Function( String title,  String message,  String positive,  String? negative,  VoidCallback? onPositiveClick,  VoidCallback? onNegativeClick,  Color? positiveColor,  bool isVertical,  Widget? icon)?  alertDialog,TResult Function( VoidCallback? onTryAgain,  VoidCallback? onIgnore)?  faceIdErrorDialog,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String message,  Func0<void>? onPressed)?  confirmDialog,TResult Function( String message,  Func0<void>? onRetryPressed)?  errorWithRetryDialog,TResult Function()?  requiredLoginDialog,TResult Function( String title,  String message,  String? buttonText,  VoidCallback? onConfirm,  Color? buttonColor,  bool isSuccess,  Widget? icon,  bool showIcon)?  messageWithTitleDialog,TResult Function( String title,  String message,  String positive,  String? negative,  VoidCallback? onPositiveClick,  VoidCallback? onNegativeClick,  Color? positiveColor,  bool isVertical,  Widget? icon)?  alertDialog,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConfirmDialog() when confirmDialog != null:
 return confirmDialog(_that.message,_that.onPressed);case _ErrorWithRetryDialog() when errorWithRetryDialog != null:
 return errorWithRetryDialog(_that.message,_that.onRetryPressed);case _RequiredLoginDialog() when requiredLoginDialog != null:
 return requiredLoginDialog();case _MessageWithTitleDialog() when messageWithTitleDialog != null:
 return messageWithTitleDialog(_that.title,_that.message,_that.buttonText,_that.onConfirm,_that.buttonColor,_that.isSuccess,_that.icon,_that.showIcon);case _AlertDialog() when alertDialog != null:
-return alertDialog(_that.title,_that.message,_that.positive,_that.negative,_that.onPositiveClick,_that.onNegativeClick,_that.positiveColor,_that.isVertical,_that.icon);case _FaceIdErrorDialog() when faceIdErrorDialog != null:
-return faceIdErrorDialog(_that.onTryAgain,_that.onIgnore);case _:
+return alertDialog(_that.title,_that.message,_that.positive,_that.negative,_that.onPositiveClick,_that.onNegativeClick,_that.positiveColor,_that.isVertical,_that.icon);case _:
   return orElse();
 
 }
@@ -160,15 +156,14 @@ return faceIdErrorDialog(_that.onTryAgain,_that.onIgnore);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String message,  Func0<void>? onPressed)  confirmDialog,required TResult Function( String message,  Func0<void>? onRetryPressed)  errorWithRetryDialog,required TResult Function()  requiredLoginDialog,required TResult Function( String title,  String message,  String? buttonText,  VoidCallback? onConfirm,  Color? buttonColor,  bool isSuccess,  Widget? icon,  bool showIcon)  messageWithTitleDialog,required TResult Function( String title,  String message,  String positive,  String? negative,  VoidCallback? onPositiveClick,  VoidCallback? onNegativeClick,  Color? positiveColor,  bool isVertical,  Widget? icon)  alertDialog,required TResult Function( VoidCallback? onTryAgain,  VoidCallback? onIgnore)  faceIdErrorDialog,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String message,  Func0<void>? onPressed)  confirmDialog,required TResult Function( String message,  Func0<void>? onRetryPressed)  errorWithRetryDialog,required TResult Function()  requiredLoginDialog,required TResult Function( String title,  String message,  String? buttonText,  VoidCallback? onConfirm,  Color? buttonColor,  bool isSuccess,  Widget? icon,  bool showIcon)  messageWithTitleDialog,required TResult Function( String title,  String message,  String positive,  String? negative,  VoidCallback? onPositiveClick,  VoidCallback? onNegativeClick,  Color? positiveColor,  bool isVertical,  Widget? icon)  alertDialog,}) {final _that = this;
 switch (_that) {
 case _ConfirmDialog():
 return confirmDialog(_that.message,_that.onPressed);case _ErrorWithRetryDialog():
 return errorWithRetryDialog(_that.message,_that.onRetryPressed);case _RequiredLoginDialog():
 return requiredLoginDialog();case _MessageWithTitleDialog():
 return messageWithTitleDialog(_that.title,_that.message,_that.buttonText,_that.onConfirm,_that.buttonColor,_that.isSuccess,_that.icon,_that.showIcon);case _AlertDialog():
-return alertDialog(_that.title,_that.message,_that.positive,_that.negative,_that.onPositiveClick,_that.onNegativeClick,_that.positiveColor,_that.isVertical,_that.icon);case _FaceIdErrorDialog():
-return faceIdErrorDialog(_that.onTryAgain,_that.onIgnore);case _:
+return alertDialog(_that.title,_that.message,_that.positive,_that.negative,_that.onPositiveClick,_that.onNegativeClick,_that.positiveColor,_that.isVertical,_that.icon);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -185,15 +180,14 @@ return faceIdErrorDialog(_that.onTryAgain,_that.onIgnore);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String message,  Func0<void>? onPressed)?  confirmDialog,TResult? Function( String message,  Func0<void>? onRetryPressed)?  errorWithRetryDialog,TResult? Function()?  requiredLoginDialog,TResult? Function( String title,  String message,  String? buttonText,  VoidCallback? onConfirm,  Color? buttonColor,  bool isSuccess,  Widget? icon,  bool showIcon)?  messageWithTitleDialog,TResult? Function( String title,  String message,  String positive,  String? negative,  VoidCallback? onPositiveClick,  VoidCallback? onNegativeClick,  Color? positiveColor,  bool isVertical,  Widget? icon)?  alertDialog,TResult? Function( VoidCallback? onTryAgain,  VoidCallback? onIgnore)?  faceIdErrorDialog,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String message,  Func0<void>? onPressed)?  confirmDialog,TResult? Function( String message,  Func0<void>? onRetryPressed)?  errorWithRetryDialog,TResult? Function()?  requiredLoginDialog,TResult? Function( String title,  String message,  String? buttonText,  VoidCallback? onConfirm,  Color? buttonColor,  bool isSuccess,  Widget? icon,  bool showIcon)?  messageWithTitleDialog,TResult? Function( String title,  String message,  String positive,  String? negative,  VoidCallback? onPositiveClick,  VoidCallback? onNegativeClick,  Color? positiveColor,  bool isVertical,  Widget? icon)?  alertDialog,}) {final _that = this;
 switch (_that) {
 case _ConfirmDialog() when confirmDialog != null:
 return confirmDialog(_that.message,_that.onPressed);case _ErrorWithRetryDialog() when errorWithRetryDialog != null:
 return errorWithRetryDialog(_that.message,_that.onRetryPressed);case _RequiredLoginDialog() when requiredLoginDialog != null:
 return requiredLoginDialog();case _MessageWithTitleDialog() when messageWithTitleDialog != null:
 return messageWithTitleDialog(_that.title,_that.message,_that.buttonText,_that.onConfirm,_that.buttonColor,_that.isSuccess,_that.icon,_that.showIcon);case _AlertDialog() when alertDialog != null:
-return alertDialog(_that.title,_that.message,_that.positive,_that.negative,_that.onPositiveClick,_that.onNegativeClick,_that.positiveColor,_that.isVertical,_that.icon);case _FaceIdErrorDialog() when faceIdErrorDialog != null:
-return faceIdErrorDialog(_that.onTryAgain,_that.onIgnore);case _:
+return alertDialog(_that.title,_that.message,_that.positive,_that.negative,_that.onPositiveClick,_that.onNegativeClick,_that.positiveColor,_that.isVertical,_that.icon);case _:
   return null;
 
 }
@@ -525,74 +519,6 @@ as VoidCallback?,positiveColor: freezed == positiveColor ? _self.positiveColor :
 as Color?,isVertical: null == isVertical ? _self.isVertical : isVertical // ignore: cast_nullable_to_non_nullable
 as bool,icon: freezed == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
 as Widget?,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _FaceIdErrorDialog implements AppPopupInfo {
-  const _FaceIdErrorDialog({this.onTryAgain = null, this.onIgnore = null});
-  
-
-@JsonKey() final  VoidCallback? onTryAgain;
-@JsonKey() final  VoidCallback? onIgnore;
-
-/// Create a copy of AppPopupInfo
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$FaceIdErrorDialogCopyWith<_FaceIdErrorDialog> get copyWith => __$FaceIdErrorDialogCopyWithImpl<_FaceIdErrorDialog>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FaceIdErrorDialog&&(identical(other.onTryAgain, onTryAgain) || other.onTryAgain == onTryAgain)&&(identical(other.onIgnore, onIgnore) || other.onIgnore == onIgnore));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,onTryAgain,onIgnore);
-
-@override
-String toString() {
-  return 'AppPopupInfo.faceIdErrorDialog(onTryAgain: $onTryAgain, onIgnore: $onIgnore)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$FaceIdErrorDialogCopyWith<$Res> implements $AppPopupInfoCopyWith<$Res> {
-  factory _$FaceIdErrorDialogCopyWith(_FaceIdErrorDialog value, $Res Function(_FaceIdErrorDialog) _then) = __$FaceIdErrorDialogCopyWithImpl;
-@useResult
-$Res call({
- VoidCallback? onTryAgain, VoidCallback? onIgnore
-});
-
-
-
-
-}
-/// @nodoc
-class __$FaceIdErrorDialogCopyWithImpl<$Res>
-    implements _$FaceIdErrorDialogCopyWith<$Res> {
-  __$FaceIdErrorDialogCopyWithImpl(this._self, this._then);
-
-  final _FaceIdErrorDialog _self;
-  final $Res Function(_FaceIdErrorDialog) _then;
-
-/// Create a copy of AppPopupInfo
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? onTryAgain = freezed,Object? onIgnore = freezed,}) {
-  return _then(_FaceIdErrorDialog(
-onTryAgain: freezed == onTryAgain ? _self.onTryAgain : onTryAgain // ignore: cast_nullable_to_non_nullable
-as VoidCallback?,onIgnore: freezed == onIgnore ? _self.onIgnore : onIgnore // ignore: cast_nullable_to_non_nullable
-as VoidCallback?,
   ));
 }
 

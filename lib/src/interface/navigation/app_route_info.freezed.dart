@@ -55,14 +55,13 @@ extension AppRouteInfoPatterns on AppRouteInfo {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Login value)?  login,TResult Function( _Main value)?  main,TResult Function( _Onboarding value)?  onboarding,TResult Function( _SurveyWelcome value)?  surveyWelcome,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Login value)?  login,TResult Function( _Main value)?  main,TResult Function( _Onboarding value)?  onboarding,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Login() when login != null:
 return login(_that);case _Main() when main != null:
 return main(_that);case _Onboarding() when onboarding != null:
-return onboarding(_that);case _SurveyWelcome() when surveyWelcome != null:
-return surveyWelcome(_that);case _:
+return onboarding(_that);case _:
   return orElse();
 
 }
@@ -80,14 +79,13 @@ return surveyWelcome(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Login value)  login,required TResult Function( _Main value)  main,required TResult Function( _Onboarding value)  onboarding,required TResult Function( _SurveyWelcome value)  surveyWelcome,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Login value)  login,required TResult Function( _Main value)  main,required TResult Function( _Onboarding value)  onboarding,}){
 final _that = this;
 switch (_that) {
 case _Login():
 return login(_that);case _Main():
 return main(_that);case _Onboarding():
-return onboarding(_that);case _SurveyWelcome():
-return surveyWelcome(_that);case _:
+return onboarding(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -104,14 +102,13 @@ return surveyWelcome(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Login value)?  login,TResult? Function( _Main value)?  main,TResult? Function( _Onboarding value)?  onboarding,TResult? Function( _SurveyWelcome value)?  surveyWelcome,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Login value)?  login,TResult? Function( _Main value)?  main,TResult? Function( _Onboarding value)?  onboarding,}){
 final _that = this;
 switch (_that) {
 case _Login() when login != null:
 return login(_that);case _Main() when main != null:
 return main(_that);case _Onboarding() when onboarding != null:
-return onboarding(_that);case _SurveyWelcome() when surveyWelcome != null:
-return surveyWelcome(_that);case _:
+return onboarding(_that);case _:
   return null;
 
 }
@@ -128,13 +125,12 @@ return surveyWelcome(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  login,TResult Function()?  main,TResult Function()?  onboarding,TResult Function()?  surveyWelcome,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  login,TResult Function()?  main,TResult Function()?  onboarding,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Login() when login != null:
 return login();case _Main() when main != null:
 return main();case _Onboarding() when onboarding != null:
-return onboarding();case _SurveyWelcome() when surveyWelcome != null:
-return surveyWelcome();case _:
+return onboarding();case _:
   return orElse();
 
 }
@@ -152,13 +148,12 @@ return surveyWelcome();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  login,required TResult Function()  main,required TResult Function()  onboarding,required TResult Function()  surveyWelcome,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  login,required TResult Function()  main,required TResult Function()  onboarding,}) {final _that = this;
 switch (_that) {
 case _Login():
 return login();case _Main():
 return main();case _Onboarding():
-return onboarding();case _SurveyWelcome():
-return surveyWelcome();case _:
+return onboarding();case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +170,12 @@ return surveyWelcome();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  login,TResult? Function()?  main,TResult? Function()?  onboarding,TResult? Function()?  surveyWelcome,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  login,TResult? Function()?  main,TResult? Function()?  onboarding,}) {final _that = this;
 switch (_that) {
 case _Login() when login != null:
 return login();case _Main() when main != null:
 return main();case _Onboarding() when onboarding != null:
-return onboarding();case _SurveyWelcome() when surveyWelcome != null:
-return surveyWelcome();case _:
+return onboarding();case _:
   return null;
 
 }
@@ -277,38 +271,6 @@ int get hashCode => runtimeType.hashCode;
 @override
 String toString() {
   return 'AppRouteInfo.onboarding()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _SurveyWelcome implements AppRouteInfo {
-  const _SurveyWelcome();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SurveyWelcome);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AppRouteInfo.surveyWelcome()';
 }
 
 
