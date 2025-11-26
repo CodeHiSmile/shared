@@ -71,4 +71,14 @@ class StringUtils {
       return firstComma != -1 ? "***${address.substring(firstComma)}" : "***";
     }
   }
+
+  static String transformImageLink({
+    required String img,
+    required String relative,
+  }) {
+    if (img.startsWith("https://") || img.startsWith("http://")) {
+      return img.replaceAll("///", "/");
+    }
+    return relative;
+  }
 }

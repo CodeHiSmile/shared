@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:shared/src/constants/base_constants.dart';
-import 'package:shared/src/helpers/app_dialog_helper.dart';
 import 'package:shared/src/utils/location_utils.dart';
 import 'package:shared/src/utils/show_loading_utils.dart';
 import 'package:file_picker/file_picker.dart';
@@ -25,6 +24,7 @@ class MediaUtils {
     bool hasResize = false,
     bool? isCheckPermission,
     bool? isGetAddress,
+    Function? onShowAlertSetting,
   }) async {
     bool isCanTake = true;
     String? addressShow = address;
@@ -36,12 +36,13 @@ class MediaUtils {
         if (permissionCamera != PermissionStatus.denied) {
           if (permissionCamera == PermissionStatus.permanentlyDenied) {
             isCanTake = false;
-            if(!context.mounted) return;
-            AppDialogHelper.showAlertSetting(
-              context,
-              message:
-                  "Mở quyền cho phép truy cập camera để sử dụng được tính năng này",
-            );
+            if (!context.mounted) return;
+            onShowAlertSetting?.call();
+            // AppDialogHelper.showAlertSetting(
+            //   context,
+            //   message:
+            //       "Mở quyền cho phép truy cập camera để sử dụng được tính năng này",
+            // );
           } else {
             isCanTake = true;
           }
@@ -51,12 +52,13 @@ class MediaUtils {
           if (result != PermissionStatus.denied) {
             if (result == PermissionStatus.permanentlyDenied) {
               isCanTake = false;
-              if(!context.mounted) return;
-              AppDialogHelper.showAlertSetting(
-                context,
-                message:
-                    "Mở quyền cho phép truy cập camera để sử dụng được tính năng này",
-              );
+              if (!context.mounted) return;
+              onShowAlertSetting?.call();
+              // AppDialogHelper.showAlertSetting(
+              //   context,
+              //   message:
+              //       "Mở quyền cho phép truy cập camera để sử dụng được tính năng này",
+              // );
             } else {
               isCanTake = true;
             }
@@ -65,7 +67,7 @@ class MediaUtils {
       }
 
       if (isGetAddress ?? false) {
-        if(!context.mounted) return;
+        if (!context.mounted) return;
         ShowLoadingUtils.instance.turnOn(context);
         final location = await LocationUtils.getAddressFromLatLng();
         if (location.isNotEmpty) {
@@ -275,6 +277,7 @@ class MediaUtils {
     required BuildContext context,
     bool hasResize = false,
     int maxImage = 3,
+    Function? onShowError,
   }) async {
     try {
       final ImagePicker picker = ImagePicker();
@@ -284,14 +287,15 @@ class MediaUtils {
       List<File> listFileImage = [];
       if (imageFile.isNotEmpty) {
         if (imageFile.length > maxImage) {
-          // if (!AppCoordinator.context.mounted) return;
           if (!context.mounted) return;
-          AppDialogHelper.showDialogCenter(
-            // AppCoordinator.context,
-            context,
-            message: "Không chọn quá $maxImage ảnh",
-            status: DialogStatus.error,
-          );
+
+          onShowError?.call();
+          // AppDialogHelper.showDialogCenter(
+          //   context,
+          //   message: "Không chọn quá $maxImage ảnh",
+          //   status: DialogStatus.error,
+          // );
+
           return;
         } else if (hasResize) {
           for (var file in imageFile) {
@@ -348,7 +352,7 @@ class MediaUtils {
         File file = File(result.files.single.path!);
         onSubmitFile.call(file);
 
-        if(!context.mounted) return;
+        if (!context.mounted) return;
         Navigator.of(context).pop();
       }
     } catch (e) {

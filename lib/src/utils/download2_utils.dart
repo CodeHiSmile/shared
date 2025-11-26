@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:shared/src/helpers/app_dialog_helper.dart';
 import 'package:shared/src/utils/log_utils.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
@@ -284,10 +283,11 @@ class Download2Utils {
     if (Platform.isAndroid) {
       final androidInfo = await DeviceInfoPlugin().androidInfo;
       final sdkInt = androidInfo.version.sdkInt;
-      if (sdkInt >= 33) {
+      if (sdkInt > 32) {
         return false;
       }
     }
+
     return true;
   }
 
@@ -295,6 +295,7 @@ class Download2Utils {
     BuildContext context, {
     required String url,
     String? customFolder,
+    Function(String filePath)? onOpenFile,
   }) async {
     try {
       if (Platform.isAndroid) {
@@ -321,15 +322,17 @@ class Download2Utils {
         LogUtils.d('File đã tồn tại, lưu với tên mới: $newFileName');
         await _downloadFile(url, newFilePath);
         if (!context.mounted) return;
-        AppDialogHelper.showDialogConfirm(
-          context,
-          title: "Tải thành công",
-          message: 'File đã được tải xuống thành công tại: $filePath',
-          buttonNameConfirm: "Mở file",
-          onConfirmAction: () async {
-            await OpenFilex.open(filePath);
-          },
-        );
+        onOpenFile?.call(filePath);
+
+        // AppDialogHelper.showDialogConfirm(
+        //   context,
+        //   title: "Tải thành công",
+        //   message: 'File đã được tải xuống thành công tại: $filePath',
+        //   buttonNameConfirm: "Mở file",
+        //   onConfirmAction: () async {
+        //     await OpenFilex.open(filePath);
+        //   },
+        // );
       } else {
         await _downloadFile(url, filePath);
         await OpenFilex.open(filePath);
@@ -461,8 +464,9 @@ class Download2Utils {
     required String url,
     String? fileName,
     String? folderName,
-    bool openAfterDownload = true,
     Function(double)? onProgress,
+    bool openAfterDownload = true,
+    Function(String filePath)? onOpenFile,
   }) async {
     try {
       if (Platform.isAndroid) {
@@ -495,24 +499,28 @@ class Download2Utils {
       if (openAfterDownload) {
         if (!context.mounted) return;
 
-        AppDialogHelper.showDialogConfirm(
-          context,
-          title: "Tải thành công",
-          message: 'File đã được tải xuống thành công tại: $filePath',
-          buttonNameConfirm: "Mở file",
-          onConfirmAction: () async {
-            await OpenFilex.open(filePath);
-          },
-        );
+        onOpenFile?.call(filePath);
+
+        // AppDialogHelper.showDialogConfirm(
+        //   context,
+        //   title: "Tải thành công",
+        //   message: 'File đã được tải xuống thành công tại: $filePath',
+        //   buttonNameConfirm: "Mở file",
+        //   onConfirmAction: () async {
+        //     await OpenFilex.open(filePath);
+        //   },
+        // );
       } else {
         if (!context.mounted) return;
 
-        AppDialogHelper.showDialogInfo(
-          context,
-          title: "Tải thành công",
-          message: 'File đã được tải xuống thành công tại: $filePath',
-          buttonNameConfirm: "Mở file",
-        );
+        onOpenFile?.call(filePath);
+
+        // AppDialogHelper.showDialogInfo(
+        //   context,
+        //   title: "Tải thành công",
+        //   message: 'File đã được tải xuống thành công tại: $filePath',
+        //   buttonNameConfirm: "Mở file",
+        // );
       }
     } catch (e) {
       LogUtils.d('Lỗi download: $e');

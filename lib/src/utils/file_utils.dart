@@ -124,16 +124,6 @@ class FileUtils {
     return allowedExtensions.any((ext) => fileName.endsWith(ext));
   }
 
-  static String transformImageLink({
-    required String img,
-    required String relative,
-  }) {
-    if (img.startsWith("https://") || img.startsWith("http://")) {
-      return img.replaceAll("///", "/");
-    }
-    return relative;
-  }
-
   static String fileToBase64(File file) {
     final bytes = file.readAsBytesSync();
     return base64Encode(bytes);
