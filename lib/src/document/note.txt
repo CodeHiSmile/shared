@@ -1,8 +1,0 @@
- Note important: search keyword này rồi làm theo comment chỉ dẫn
-Note2 important: tìm và thử mở comment
-
-Câu lệnh check các dependeny của thư viện:
-flutter pub deps
-
-AppBloc: chứa state và event để xử lý cho toàn app (= với Global data nhưng có state)
-CommonBloc: chứa state và event để xử lý cho các chức năng xử lý chung trong app (để xử lý trong ExceptionHandler và ExceptionHandlerListener)
