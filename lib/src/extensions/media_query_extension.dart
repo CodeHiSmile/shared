@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 extension MediaQueryExt on BuildContext {
@@ -106,6 +107,10 @@ extension MediaQueryExt on BuildContext {
   /// if the device width is less than 300  return [watch] value.
   /// in other cases return [mobile] value.
   T? responsiveValue<T>({T? mobile, T? tablet, T? desktop}) {
+    if (kIsWeb) {
+      return desktop ?? tablet ?? mobile;
+    }
+
     var deviceWidth = mediaQuerySize.shortestSide;
     if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
       deviceWidth = mediaQuerySize.width;

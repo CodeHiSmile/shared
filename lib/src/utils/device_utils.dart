@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:android_id/android_id.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared/src/constants/ui/device_constants.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,10 @@ class DeviceUtils {
   static DeviceType deviceType = _getDeviceType();
 
   static Future<String> getDeviceId() async {
+    if (kIsWeb) {
+      return "Web platform";
+    }
+
     if (Platform.isIOS) {
       return await FlutterUdid.udid; // unique ID on iOS
     } else if (Platform.isAndroid) {
@@ -26,6 +31,10 @@ class DeviceUtils {
   }
 
   static Future<DeviceInfoEntity?> getDeviceInfo() async {
+    if (kIsWeb) {
+      return null;
+    }
+
     var deviceInfo = DeviceInfoPlugin();
     String deviceId = await FlutterUdid.udid;
 
@@ -52,6 +61,10 @@ class DeviceUtils {
   }
 
   static Future<String> getDeviceModelName() async {
+    if (kIsWeb) {
+      return "Web platform";
+    }
+
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
@@ -65,6 +78,10 @@ class DeviceUtils {
   }
 
   static DeviceType _getDeviceType() {
+    if (kIsWeb) {
+      return DeviceType.web;
+    }
+
     final size = MediaQueryData.fromView(
       WidgetsBinding.instance.platformDispatcher.views.first,
     ).size;
@@ -81,6 +98,10 @@ class DeviceUtils {
   }
 
   static Future<String?> getLocalIp() async {
+    if (kIsWeb) {
+      return null;
+    }
+
     final listNetwork = await NetworkInterface.list();
     for (var interface in listNetwork) {
       for (var address in interface.addresses) {

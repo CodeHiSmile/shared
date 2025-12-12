@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -15,6 +15,10 @@ class PermissionUtils {
 
   /// Xin quyền truy cập storage
   static Future<bool> requestStoragePermission() async {
+    if (kIsWeb) {
+      return true;
+    }
+
     if (Platform.isAndroid) {
       final androidInfo = await DeviceInfoPlugin().androidInfo;
       final sdkInt = androidInfo.version.sdkInt;
@@ -89,15 +93,23 @@ class PermissionUtils {
   static Future<dynamic> handleRequestPermission(
     Permission permissionType, {
     Future<dynamic> Function()? handleWhenIsGranted,
-  }) async => Platform.isAndroid
-      ? await handleRequestPermissionAndroid(
-          permissionType,
-          handleWhenIsGranted: handleWhenIsGranted,
-        )
-      : await handleRequestPermissionIos(
-          permissionType,
-          handleWhenIsGranted: handleWhenIsGranted,
-        );
+  }) async {
+    if (kIsWeb) {
+      return null;
+    }
+
+    if (Platform.isAndroid) {
+      return await handleRequestPermissionAndroid(
+        permissionType,
+        handleWhenIsGranted: handleWhenIsGranted,
+      );
+    } else {
+      return await handleRequestPermissionIos(
+        permissionType,
+        handleWhenIsGranted: handleWhenIsGranted,
+      );
+    }
+  }
 
   static Future<dynamic> handleRequestPermissionIos(
     Permission permissionType, {
