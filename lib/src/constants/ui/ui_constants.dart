@@ -6,6 +6,8 @@ class UiConstants {
   /// shimmer
   static const shimmerItemCount = 20;
 
+  static const double minDialogWidth = 500;
+
   /// material app
   static const materialAppTitle = 'My App';
   static const taskMenuMaterialAppColor = Color.fromARGB(255, 153, 154, 251);
