@@ -26,11 +26,23 @@ extension IntExtensions on int {
     String locale = 'vi_VN',
     int decimalDigits = 0,
   }) {
-    String currency = NumberFormat.currency(
+    final formatter = NumberFormat.currency(
       symbol: '',
       locale: locale,
       decimalDigits: decimalDigits,
-    ).format(this);
+    );
+
+    final currency = formatter.format(this).trim();
+
     return '$currency$symbol';
+  }
+
+  String formatVND() {
+    final formatter = NumberFormat.currency(
+      locale: 'en_US',
+      symbol: 'VNĐ ',
+      decimalDigits: 0,
+    );
+    return formatter.format(this);
   }
 }

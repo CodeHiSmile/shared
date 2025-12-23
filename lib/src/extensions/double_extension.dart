@@ -29,4 +29,13 @@ extension DoubleExtensions on double {
     ).format(this);
     return '$currency$symbol';
   }
+
+  String formatVND() {
+    final formatter = NumberFormat.currency(
+      locale: 'en_US',
+      symbol: 'VNĐ ',
+      decimalDigits: 0,
+    );
+    return formatter.format(this);
+  }
 }
