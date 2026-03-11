@@ -8,6 +8,11 @@ class ShowLoadingUtils {
       ShowLoadingUtils._privateConstructor();
 
   OverlayEntry? _overlayEntry;
+  Color? _valueColor;
+
+  void setValueColor(Color? color) {
+    _valueColor = color;
+  }
 
   OverlayEntry _createOverlayEntry(BuildContext context) {
     return OverlayEntry(
@@ -19,7 +24,11 @@ class ShowLoadingUtils {
           height: 50,
           width: 50,
           color: Colors.transparent,
-          child: Center(child: LoadingIndicator()),
+          child: Center(
+            child: LoadingIndicator(
+              valueColor: _valueColor ?? Theme.of(context).primaryColor,
+            ),
+          ),
         ),
       ),
     );

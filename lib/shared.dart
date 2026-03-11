@@ -60,6 +60,7 @@ export 'src/extensions/date_time_extension.dart';
 export 'src/extensions/double_extension.dart';
 export 'src/extensions/int_extension.dart';
 export 'src/extensions/media_query_extension.dart';
+export 'src/extensions/iterable_extension.dart';
 export 'src/extensions/string_extension.dart';
 
 // Helpers

@@ -45,4 +45,31 @@ extension IntExtensions on int {
     );
     return formatter.format(this);
   }
+
+  String formatCount() {
+    if (this >= 1000000) {
+      return '${(this / 1000000).toStringAsFixed(1)}M';
+    } else if (this >= 1000) {
+      return '${(this / 1000).toStringAsFixed(1)}K';
+    }
+    return '$this';
+  }
+
+  String formatCountDouble() {
+    if (this >= 1000000) {
+      return '${_formatCompact(this / 1000000)}M';
+    } else if (this >= 100000) {
+      return '${_formatCompact(this / 1000)}K';
+    } else {
+      final formatter = NumberFormat('#,###', 'en_US');
+      return formatter.format(this);
+    }
+  }
+
+  String _formatCompact(double value) {
+    if (value % 1 == 0) {
+      return value.toInt().toString();
+    }
+    return value.toStringAsFixed(1);
+  }
 }

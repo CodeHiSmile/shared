@@ -52,9 +52,13 @@ extension StringExtension on String? {
   bool get isEmptyOrNull =>
       this == null || (this ?? '').isEmpty || (this! == 'null');
 
-  static String commentTime(String date) {
+  String timeAgo() {
     try {
-      var dateItem = DateTime.parse(date).toLocal();
+      if (this == null || this!.isEmpty) {
+        return "";
+      }
+
+      var dateItem = DateTime.parse(this!).toLocal();
       var dateNow = DateTime.now();
       var differenceDay = dateNow.difference(dateItem).inDays;
       if (differenceDay == 0) {
