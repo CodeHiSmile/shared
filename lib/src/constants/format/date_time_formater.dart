@@ -12,6 +12,7 @@ class DateTimeFormatter {
   static const String formatDayMonth = "dd/MM";
   static const String formatMonthYear = "MM/yyyy";
   static const String formatDateAndHourVi = "dd/MM/yyyy, HH:mm";
+  static const String formatDateAndHourVi2 = "HH:mm - dd/MM/yyyy";
 
   /// 🌐 Dành cho xử lý dữ liệu server / backend
   static const String formatServerDate = "yyyy-MM-dd";
