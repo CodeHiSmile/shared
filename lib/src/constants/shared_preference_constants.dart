@@ -10,4 +10,5 @@ class SharedPreferenceKeys {
   static const isFirstLaunchApp = 'isFirstLaunchApp';
   static const languageCode = 'languageCode';
   static const isFirstSurvey = "isFirstSurvey";
+  static const username = "username";
 }
