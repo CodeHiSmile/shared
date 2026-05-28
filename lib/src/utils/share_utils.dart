@@ -3,16 +3,12 @@ import 'package:share_plus/share_plus.dart';
 
 class ShareUtils {
   static shareLink({
-    BuildContext? context,
     required String urlShare,
     Function? onShareSuccess,
+    Function? onShareFail,
   }) async {
     if (urlShare.isEmpty) {
-      if (context != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Không có đường dẫn để chia sẻ')),
-        );
-      }
+      onShareFail?.call();
       return;
     }
 
