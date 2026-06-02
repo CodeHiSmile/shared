@@ -12,9 +12,7 @@ class ShareUtils {
       return;
     }
 
-    final result = await SharePlus.instance.share(
-      ShareParams(uri: Uri.parse(urlShare)),
-    );
+    final result = await SharePlus.instance.share(ShareParams(text: urlShare));
 
     if (result.status == ShareResultStatus.success) {
       onShareSuccess?.call();
