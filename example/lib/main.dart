@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     ShareUtils.shareLink(
+      context,
       urlShare: 'https://flutter.dev',
       onShareSuccess: () {
         setState(() {
